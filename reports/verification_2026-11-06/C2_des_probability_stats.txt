@@ -1,0 +1,5 @@
+rows_low_prob 101 rows_high_prob 1719
+all_median 0.015753138123655225 scaled_MAD 0.1619732892555404 all_RMS 0.26825085115336683
+high_probability_RMS 0.16911420549170805
+common_interval 0.02509 1.14418 eligible_both_old_new 8 max_abs_populated_bin_difference_change 0.01916188892414894
+pantheon_noncal_rows 1624 z<=.01 44 z>.01 1580

@@ -1,0 +1,9 @@
+{
+  "object_id": "synthetic-supernova-basic-001",
+  "synthetic": true,
+  "band": "B",
+  "time_frame": "rest",
+  "redshift": 0.0,
+  "magnitude_system": "synthetic",
+  "description": "Synthetic rest-frame B-band light curve for the Basic mode linear 15-day decline baseline."
+}

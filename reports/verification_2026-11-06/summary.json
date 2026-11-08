@@ -1,0 +1,996 @@
+{
+  "date": "2026-11-06",
+  "environment": {
+    "python": "<project>/.venv/bin/python",
+    "numpy": "2.5.1",
+    "pandas": "3.0.3",
+    "sncosmo": "2.13.0",
+    "matplotlib_backend": "Agg",
+    "mplconfigdir": "<project>/reports/verification_2026-11-06/cache/mpl",
+    "xdg_cache_home": "<project>/reports/verification_2026-11-06/cache/xdg",
+    "astropy_cache_dir": "~/.cache/astropy"
+  },
+  "steps": {
+    "A_basic_sample": {
+      "status": "PASS",
+      "runtime_seconds": 0.3134363330900669,
+      "results": {
+        "rows": 10,
+        "peak_time_days": 0.0,
+        "peak_magnitude_mag": 17.3,
+        "dm15_target_time_days": 15.0,
+        "interpolated_magnitude_mag": 18.733333333333334,
+        "delta_m15_mag": 1.4333333333333336,
+        "peak_method": "minimum observed sample; earliest minimum after stable time sort",
+        "decline_method": "linear interpolation at t_peak + 15 days; no extrapolation",
+        "figure_status": "PASS"
+      }
+    },
+    "B_salt3_sample": {
+      "status": "PASS",
+      "runtime_seconds": 0.8842693748883903,
+      "results": {
+        "sample_rows": 40,
+        "bands": [
+          "sdssg",
+          "sdssi",
+          "sdssr",
+          "sdssz"
+        ],
+        "redshift_fixed": 0.5,
+        "source": "salt3",
+        "source_version": "2.0",
+        "sncosmo_version": "2.13.0",
+        "parameters": {
+          "t0": {
+            "value": 55100.47031011109,
+            "uncertainty": 0.42866533592314227
+          },
+          "x0": {
+            "value": 1.1751079300756542e-05,
+            "uncertainty": 4.406621583912224e-07
+          },
+          "x1": {
+            "value": 0.5922134005557601,
+            "uncertainty": 0.37259451535733684
+          },
+          "c": {
+            "value": 0.22980680610882837,
+            "uncertainty": 0.0332282244241352
+          }
+        },
+        "chi2": 32.12768580816664,
+        "ndof": 36,
+        "reduced_chi2": 0.8924357168935177,
+        "observations_used": 40,
+        "observations_total": 40,
+        "model_covariance_included": true,
+        "fit_message": "Minimization exited successfully.",
+        "bounds": "None passed; sncosmo backend defaults",
+        "min_snr": 5.0,
+        "diagnostic_raw_residual_rms_flux": 0.6458254506131348,
+        "diagnostic_normalized_residual_rms": 0.8893109670587133,
+        "standardization": {
+          "status": "PASS",
+          "m_B_mag": 22.83617728374277,
+          "m_B_error_mag": 0.040714801354579326,
+          "normalization_C_mag": 10.511371676397545,
+          "reference_band": "bessellb",
+          "magnitude_system": "ab",
+          "tripp_mu_demo_mag": 41.506686060883204,
+          "alpha_demo": 0.14,
+          "beta_demo": 3.1,
+          "M_demo_mag": -19.3,
+          "origin": "app/script demonstration defaults, not a survey calibration"
+        },
+        "x1_c_screen": {
+          "x1_within_broad_release_selection_range": true,
+          "c_within_broad_release_selection_range": true,
+          "note": "Pantheon+ broad sample selection ranges; not a universal definition of normal Ia"
+        },
+        "figure_status": "PASS"
+      }
+    },
+    "C_salt3_injection_recovery": {
+      "status": "PASS",
+      "runtime_seconds": 11.795423708157614,
+      "results": {
+        "available_offline": true,
+        "seed": 20261106,
+        "replicates": 100,
+        "truth": {
+          "z": 0.5,
+          "t0": 55110.0,
+          "x0": 1.3467382556168689e-05,
+          "x1": 0.4,
+          "c": 0.05
+        },
+        "noise": "independent Gaussian noise with each bundled sample row's fluxerr",
+        "cadence_rows_bands": {
+          "rows": 40,
+          "bands": [
+            "sdssg",
+            "sdssi",
+            "sdssr",
+            "sdssz"
+          ]
+        },
+        "recovery": {
+          "t0": {
+            "successful_fits": 100,
+            "bias": 0.022668517027050257,
+            "scatter_sample_sd": 0.36282320648787836,
+            "median": -0.009569844805810135
+          },
+          "x1": {
+            "successful_fits": 100,
+            "bias": -0.024679737804102347,
+            "scatter_sample_sd": 0.35600489979638905,
+            "median": -0.008073211843425299
+          },
+          "c": {
+            "successful_fits": 100,
+            "bias": 0.00015646602738005522,
+            "scatter_sample_sd": 0.02293601043533911,
+            "median": -0.0006133430380459853
+          },
+          "m_B": {
+            "successful_fits": 100,
+            "bias": -0.0020012382798108796,
+            "scatter_sample_sd": 0.02939218003974556,
+            "median": 0.0006960714794049557
+          }
+        },
+        "failed_replicates": [],
+        "status": "PASS"
+      }
+    },
+    "D_to_I_official_catalogs": {
+      "status": "FAIL",
+      "runtime_seconds": 0.13800708297640085,
+      "error": "AttributeError: 'NormalizedDistanceCatalog' object has no attribute 'to_pandas'",
+      "traceback": "Traceback (most recent call last):\n  File \"<project>/reports/verification_2026-11-06/run_analysis.py\", line 128, in _step\n    result = function()\n  File \"<project>/reports/verification_2026-11-06/run_analysis.py\", line 539, in _catalog_analyses\n    des_frame = des_catalog.to_pandas()\n                ^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'NormalizedDistanceCatalog' object has no attribute 'to_pandas'\n"
+    },
+    "D_to_I_official_catalogs_first_attempt": {
+      "status": "FAIL",
+      "runtime_seconds": 0.13800708297640085,
+      "error": "AttributeError: 'NormalizedDistanceCatalog' object has no attribute 'to_pandas'",
+      "traceback": "Traceback (most recent call last):\n  File \"<project>/reports/verification_2026-11-06/run_analysis.py\", line 128, in _step\n    result = function()\n  File \"<project>/reports/verification_2026-11-06/run_analysis.py\", line 539, in _catalog_analyses\n    des_frame = des_catalog.to_pandas()\n                ^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'NormalizedDistanceCatalog' object has no attribute 'to_pandas'\n"
+    },
+    "D_to_I_official_catalogs_retry": {
+      "status": "PASS",
+      "runtime_seconds": 5.152675457997248,
+      "results": {
+        "runtime_load_factor_plot_seconds": 5.151808957802132,
+        "des_dovekie": {
+          "rows": 1820,
+          "z_min": 0.02509,
+          "z_max": 1.14418,
+          "mu_column": "MU",
+          "z_column": "zHD with zHEL frame correction",
+          "full_statsys": {
+            "intercept_mag": -0.011476082860854579,
+            "intercept_sigma_mag": 0.004770656990172016,
+            "chi2": 1635.5552461385828,
+            "ndof": 1819,
+            "chi2_per_dof": 0.8991507675308317,
+            "matrix_type": "precision P, packed upper triangle; STAT+SYS"
+          },
+          "diagonal_only_marginal_errors": {
+            "intercept_mag": -0.007614427679949647,
+            "intercept_sigma_mag": 0.0037712019124668643,
+            "chi2": 1532.8017513152956,
+            "ndof": 1819,
+            "chi2_per_dof": 0.8426617654289695
+          },
+          "matrix_check": {
+            "dimension": 1820,
+            "symmetry_max_abs": 0.0,
+            "minimum_eigenvalue_precision": 4.565498669713613e-06,
+            "cholesky_succeeds": true,
+            "marginal_error_ratio_vs_MUERR": {
+              "median": 1.0263104530268994,
+              "min": 0.9999999808164661,
+              "max": 3.1371321810838015
+            },
+            "whitened_residual": {
+              "mean": 0.04507560373261824,
+              "sd_sample": 0.9471630485223175,
+              "chi2_over_n_minus_1": 0.8991507675308317,
+              "sum_w2": 1635.5552461385828
+            }
+          }
+        },
+        "pantheon_plus": {
+          "full_rows": 1701,
+          "calibrator_rows_excluded": 77,
+          "hubble_flow_rows": 1624,
+          "z_min": 0.00299,
+          "z_max": 2.26137,
+          "mu_column": "MU_SH0ES",
+          "z_column": "zHD with zHEL frame correction",
+          "retained_source_row_indices_first_10": [
+            4,
+            21,
+            23,
+            25,
+            26,
+            29,
+            30,
+            31,
+            32,
+            35
+          ],
+          "full_statsys": {
+            "intercept_mag": -0.11040849635346506,
+            "intercept_sigma_mag": 0.003680512912835663,
+            "chi2": 1460.0618653027532,
+            "ndof": 1623,
+            "chi2_per_dof": 0.8996068178082275,
+            "matrix_type": "covariance C; STAT+SYS; principal submatrix by source row position"
+          },
+          "diagonal_only_marginal_errors": {
+            "intercept_mag": -0.10848448781734268,
+            "intercept_sigma_mag": 0.0036538152171444052,
+            "chi2": 1396.5589145586036,
+            "ndof": 1623,
+            "chi2_per_dof": 0.8604799227101686
+          },
+          "matrix_check": {
+            "dimension": 1701,
+            "symmetry_max_abs": 3.0000000000038676e-08,
+            "full_cholesky_succeeds": true,
+            "subset_dimension": 1624,
+            "subset_symmetry_max_abs": 0.0,
+            "subset_cholesky_succeeds": true,
+            "eigenvalue_min": 0.0051927504542455555,
+            "eigenvalue_max": 2.461068553647432,
+            "condition_number_2": 473.9431588967038,
+            "marginal_error_ratio_vs_MU_SH0ES_ERR_DIAG": {
+              "median": 0.7136259451406434,
+              "min": 0.20557563384192676,
+              "max": 1.007519130480482
+            },
+            "whitened_residual": {
+              "mean": 0.01887070497099408,
+              "sd_sample": 0.9482881918970952,
+              "chi2_over_n_minus_1": 0.8996068178082275,
+              "sum_w2": 1460.0618653027532
+            }
+          }
+        },
+        "h0_invariance": {
+          "reference_h0_values_km_s_mpc": [
+            67,
+            70,
+            73
+          ],
+          "intercepts_by_h0": {
+            "67": {
+              "des_intercept_mag": -0.10659226942800634,
+              "pantheon_intercept_mag": -0.2055246829206169
+            },
+            "70": {
+              "des_intercept_mag": -0.011476082860854579,
+              "pantheon_intercept_mag": -0.11040849635346506
+            },
+            "73": {
+              "des_intercept_mag": 0.07964801767014118,
+              "pantheon_intercept_mag": -0.01928439582246957
+            }
+          },
+          "max_abs_per_row_residual_change_mag": {
+            "67": 8.965050923848139e-15,
+            "70": 0.0,
+            "73": 9.131584377541913e-15
+          },
+          "max_abs_10bin_median_difference_change_mag": {
+            "67": 7.188694084447889e-15,
+            "70": 0.0,
+            "73": 7.382983113757291e-15
+          },
+          "expected": "numerical roundoff, approximately <= 1e-14 mag"
+        },
+        "cross_catalog": {
+          "common_redshift_interval": [
+            0.02509,
+            1.14418
+          ],
+          "rows_in_overlap": {
+            "des_dovekie": 1820,
+            "pantheon_plus": 1303
+          },
+          "summary": {
+            "first_catalog": {
+              "catalog_name": "DES-Dovekie",
+              "analysis_mode": "dovekie_stat_plus_systematic_complete_precision",
+              "number_of_fitted_rows": 1820,
+              "minimum_redshift": 0.02509,
+              "median_redshift": 0.479345,
+              "maximum_redshift": 1.14418,
+              "fitted_nuisance_intercept": -0.011476082860854579,
+              "intercept_uncertainty": 0.004770656990172016,
+              "catalog_specific_chi2": 1635.5552461385828,
+              "ndof": 1819,
+              "catalog_specific_reduced_chi2": 0.8991507675308317,
+              "arithmetic_residual_mean": 0.04685099958827756,
+              "residual_median": 0.015753138123655225,
+              "residual_rms": 0.26825085115336683,
+              "residual_mad_scatter": 0.1619732892555404,
+              "catalog_release": "Current official DES-Dovekie release",
+              "catalog_order_fingerprint": "bbe071d5f9e624991619308fa712052c9e2780735d0f610bb2cea49574d01ce2"
+            },
+            "second_catalog": {
+              "catalog_name": "Pantheon+ Hubble-flow subset (SN-only)",
+              "analysis_mode": "pantheonplus_stat_plus_systematic_complete_covariance",
+              "number_of_fitted_rows": 1624,
+              "minimum_redshift": 0.00299,
+              "median_redshift": 0.180615,
+              "maximum_redshift": 2.26137,
+              "fitted_nuisance_intercept": -0.11040849635346506,
+              "intercept_uncertainty": 0.003680512912835663,
+              "catalog_specific_chi2": 1460.0618653027532,
+              "ndof": 1623,
+              "catalog_specific_reduced_chi2": 0.8996068178082275,
+              "arithmetic_residual_mean": 0.006890665580152523,
+              "residual_median": 0.0035063106076873574,
+              "residual_rms": 0.1635682147420098,
+              "residual_mad_scatter": 0.13226058327045317,
+              "catalog_release": "Official Pantheon+SH0ES distance release",
+              "catalog_order_fingerprint": "a60ce4d1f8036ab2424e58a630e6a16e39854d190a6c165ed67d06768fd8bf04"
+            },
+            "common_redshift_minimum": 0.02509,
+            "common_redshift_maximum": 1.14418,
+            "first_catalog_rows_in_common_range": 1820,
+            "second_catalog_rows_in_common_range": 1303,
+            "bin_edges": [
+              0.02509,
+              0.13699899999999998,
+              0.248908,
+              0.360817,
+              0.472726,
+              0.584635,
+              0.696544,
+              0.8084529999999999,
+              0.9203619999999999,
+              1.032271,
+              1.14418
+            ],
+            "bins": [
+              {
+                "lower_edge": 0.02509,
+                "upper_edge": 0.13699899999999998,
+                "first_catalog": {
+                  "lower_edge": 0.02509,
+                  "upper_edge": 0.13699899999999998,
+                  "representative_redshift": 0.03972,
+                  "row_count": 210,
+                  "median_residual": 0.02665185461019562,
+                  "residual_percentile_16": -0.08738817196592479,
+                  "residual_percentile_84": 0.1631754967352346
+                },
+                "second_catalog": {
+                  "lower_edge": 0.02509,
+                  "upper_edge": 0.13699899999999998,
+                  "representative_redshift": 0.03893,
+                  "row_count": 416,
+                  "median_residual": 0.018060421324275655,
+                  "residual_percentile_16": -0.10334289510637786,
+                  "residual_percentile_84": 0.1554636446559006
+                },
+                "descriptive_median_difference": 0.008591433285919964,
+                "minimum_count_required": 5
+              },
+              {
+                "lower_edge": 0.13699899999999998,
+                "upper_edge": 0.248908,
+                "first_catalog": {
+                  "lower_edge": 0.13699899999999998,
+                  "upper_edge": 0.248908,
+                  "representative_redshift": 0.21792,
+                  "row_count": 103,
+                  "median_residual": 0.009736925517211862,
+                  "residual_percentile_16": -0.11590353858795836,
+                  "residual_percentile_84": 0.21625466080685818
+                },
+                "second_catalog": {
+                  "lower_edge": 0.13699899999999998,
+                  "upper_edge": 0.248908,
+                  "representative_redshift": 0.19782,
+                  "row_count": 287,
+                  "median_residual": 0.0048858658208037475,
+                  "residual_percentile_16": -0.11405546421141492,
+                  "residual_percentile_84": 0.12517320324544082
+                },
+                "descriptive_median_difference": 0.004851059696408115,
+                "minimum_count_required": 5
+              },
+              {
+                "lower_edge": 0.248908,
+                "upper_edge": 0.360817,
+                "first_catalog": {
+                  "lower_edge": 0.248908,
+                  "upper_edge": 0.360817,
+                  "representative_redshift": 0.32184,
+                  "row_count": 276,
+                  "median_residual": 0.010203817514542383,
+                  "residual_percentile_16": -0.11029594236525284,
+                  "residual_percentile_84": 0.20838087396890828
+                },
+                "second_catalog": {
+                  "lower_edge": 0.248908,
+                  "upper_edge": 0.360817,
+                  "representative_redshift": 0.302775,
+                  "row_count": 262,
+                  "median_residual": 0.0094909389286717,
+                  "residual_percentile_16": -0.10625813150907801,
+                  "residual_percentile_84": 0.1559045895471594
+                },
+                "descriptive_median_difference": 0.0007128785858706837,
+                "minimum_count_required": 5
+              },
+              {
+                "lower_edge": 0.360817,
+                "upper_edge": 0.472726,
+                "first_catalog": {
+                  "lower_edge": 0.360817,
+                  "upper_edge": 0.472726,
+                  "representative_redshift": 0.42440500000000003,
+                  "row_count": 300,
+                  "median_residual": 0.006311728648908858,
+                  "residual_percentile_16": -0.14192359956119743,
+                  "residual_percentile_84": 0.18480671333851958
+                },
+                "second_catalog": {
+                  "lower_edge": 0.360817,
+                  "upper_edge": 0.472726,
+                  "representative_redshift": 0.41657,
+                  "row_count": 133,
+                  "median_residual": 0.012854989732808964,
+                  "residual_percentile_16": -0.12246242224599867,
+                  "residual_percentile_84": 0.11403713599801832
+                },
+                "descriptive_median_difference": -0.0065432610839001055,
+                "minimum_count_required": 5
+              },
+              {
+                "lower_edge": 0.472726,
+                "upper_edge": 0.584635,
+                "first_catalog": {
+                  "lower_edge": 0.472726,
+                  "upper_edge": 0.584635,
+                  "representative_redshift": 0.5324150000000001,
+                  "row_count": 338,
+                  "median_residual": 0.010116788795221513,
+                  "residual_percentile_16": -0.15289021122045554,
+                  "residual_percentile_84": 0.19828397183129606
+                },
+                "second_catalog": {
+                  "lower_edge": 0.472726,
+                  "upper_edge": 0.584635,
+                  "representative_redshift": 0.5324800000000001,
+                  "row_count": 90,
+                  "median_residual": -0.035499427056641775,
+                  "residual_percentile_16": -0.15006638376077075,
+                  "residual_percentile_84": 0.09930977037020716
+                },
+                "descriptive_median_difference": 0.04561621585186329,
+                "minimum_count_required": 5
+              },
+              {
+                "lower_edge": 0.584635,
+                "upper_edge": 0.696544,
+                "first_catalog": {
+                  "lower_edge": 0.584635,
+                  "upper_edge": 0.696544,
+                  "representative_redshift": 0.63779,
+                  "row_count": 329,
+                  "median_residual": 0.027937738204239088,
+                  "residual_percentile_16": -0.15480968427191058,
+                  "residual_percentile_84": 0.22518353592000537
+                },
+                "second_catalog": {
+                  "lower_edge": 0.584635,
+                  "upper_edge": 0.696544,
+                  "representative_redshift": 0.63225,
+                  "row_count": 53,
+                  "median_residual": -0.018315120644416094,
+                  "residual_percentile_16": -0.13762847704511086,
+                  "residual_percentile_84": 0.08598297045963721
+                },
+                "descriptive_median_difference": 0.04625285884865518,
+                "minimum_count_required": 5
+              },
+              {
+                "lower_edge": 0.696544,
+                "upper_edge": 0.8084529999999999,
+                "first_catalog": {
+                  "lower_edge": 0.696544,
+                  "upper_edge": 0.8084529999999999,
+                  "representative_redshift": 0.74899,
+                  "row_count": 143,
+                  "median_residual": -0.011375399958465234,
+                  "residual_percentile_16": -0.1485282442724754,
+                  "residual_percentile_84": 0.18513327708220928
+                },
+                "second_catalog": {
+                  "lower_edge": 0.696544,
+                  "upper_edge": 0.8084529999999999,
+                  "representative_redshift": 0.73596,
+                  "row_count": 51,
+                  "median_residual": -0.054116451373374286,
+                  "residual_percentile_16": -0.1796159093382239,
+                  "residual_percentile_84": 0.053614871025388755
+                },
+                "descriptive_median_difference": 0.042741051414909054,
+                "minimum_count_required": 5
+              },
+              {
+                "lower_edge": 0.8084529999999999,
+                "upper_edge": 0.9203619999999999,
+                "first_catalog": {
+                  "lower_edge": 0.8084529999999999,
+                  "upper_edge": 0.9203619999999999,
+                  "representative_redshift": 0.850295,
+                  "row_count": 78,
+                  "median_residual": 0.034300412760212146,
+                  "residual_percentile_16": -0.18399448772592578,
+                  "residual_percentile_84": 0.2217032787072581
+                },
+                "second_catalog": {
+                  "lower_edge": 0.8084529999999999,
+                  "upper_edge": 0.9203619999999999,
+                  "representative_redshift": 0.83981,
+                  "row_count": 3,
+                  "median_residual": -0.1609873830333437,
+                  "residual_percentile_16": -0.2689713830333433,
+                  "residual_percentile_84": -0.01858597760076619
+                },
+                "descriptive_median_difference": null,
+                "minimum_count_required": 5
+              },
+              {
+                "lower_edge": 0.9203619999999999,
+                "upper_edge": 1.032271,
+                "first_catalog": {
+                  "lower_edge": 0.9203619999999999,
+                  "upper_edge": 1.032271,
+                  "representative_redshift": 0.96774,
+                  "row_count": 34,
+                  "median_residual": 0.06355073343421794,
+                  "residual_percentile_16": -0.18881659750166377,
+                  "residual_percentile_84": 0.1955537292025137
+                },
+                "second_catalog": {
+                  "lower_edge": 0.9203619999999999,
+                  "upper_edge": 1.032271,
+                  "representative_redshift": 1.01615,
+                  "row_count": 6,
+                  "median_residual": 0.14176254089376927,
+                  "residual_percentile_16": -0.1145895920020929,
+                  "residual_percentile_84": 0.28190641425454904
+                },
+                "descriptive_median_difference": -0.07821180745955134,
+                "minimum_count_required": 5
+              },
+              {
+                "lower_edge": 1.032271,
+                "upper_edge": 1.14418,
+                "first_catalog": {
+                  "lower_edge": 1.032271,
+                  "upper_edge": 1.14418,
+                  "representative_redshift": 1.0642,
+                  "row_count": 9,
+                  "median_residual": -0.19239799128700028,
+                  "residual_percentile_16": -0.21771381024467656,
+                  "residual_percentile_84": 0.07026038918682115
+                },
+                "second_catalog": {
+                  "lower_edge": 1.032271,
+                  "upper_edge": 1.14418,
+                  "representative_redshift": 1.0845449999999999,
+                  "row_count": 2,
+                  "median_residual": 0.22490343836524973,
+                  "residual_percentile_16": 0.17057224210543967,
+                  "residual_percentile_84": 0.2792346346250598
+                },
+                "descriptive_median_difference": null,
+                "minimum_count_required": 5
+              }
+            ],
+            "independent_nuisance_intercepts": true,
+            "object_cross_matching_performed": false,
+            "cross_catalog_covariance_constructed": false,
+            "comparison_kind": "descriptive only"
+          },
+          "bin_sensitivity": {
+            "10": {
+              "eligible_bins": 8,
+              "excluded_bins": 2,
+              "differences_mag": [
+                0.008591433285919964,
+                0.004851059696408115,
+                0.0007128785858706837,
+                -0.0065432610839001055,
+                0.04561621585186329,
+                0.04625285884865518,
+                0.042741051414909054,
+                -0.07821180745955134
+              ]
+            },
+            "20": {
+              "eligible_bins": 14,
+              "excluded_bins": 6,
+              "differences_mag": [
+                0.009921037084582723,
+                -0.01018607567075422,
+                0.05789949265503394,
+                0.009652426617078462,
+                0.013729304825106951,
+                -0.007622051198728469,
+                -0.03502529020489761,
+                0.012483416936598518,
+                0.046054088205940064,
+                0.05345129088349579,
+                0.05285003921007628,
+                0.020309889937186215,
+                0.07441378712814553,
+                0.013081045654443374
+              ]
+            },
+            "30": {
+              "eligible_bins": 21,
+              "excluded_bins": 9,
+              "differences_mag": [
+                0.017813539615241597,
+                0.022227369410744574,
+                -0.055451939463653316,
+                -0.017474226161480727,
+                0.0225105877381874,
+                0.01336009643811478,
+                0.013729304825106951,
+                -0.010044488465196094,
+                0.004122812681467551,
+                -0.040616559218341036,
+                -0.02784344388825674,
+                0.013235584192100719,
+                0.04230773577850214,
+                0.06888889626246977,
+                0.0507853688815966,
+                0.04441281447938464,
+                0.0854582300674859,
+                0.015382152079323946,
+                0.06112600171490526,
+                0.05408327945982619,
+                -0.013346133530090482
+              ]
+            }
+          },
+          "default_bins": 10,
+          "minimum_count_per_catalog_per_bin": 5
+        },
+        "matrix_whitening_figures": "PASS"
+      }
+    }
+  },
+  "figures": [
+    {
+      "stem": "01_basic_sample",
+      "png": "figures/01_basic_sample.png",
+      "jpg": "figures/01_basic_sample.jpg"
+    },
+    {
+      "stem": "02_salt3_fit",
+      "png": "figures/02_salt3_fit.png",
+      "jpg": "figures/02_salt3_fit.jpg"
+    },
+    {
+      "stem": "03_salt3_injection_recovery",
+      "png": "figures/03_salt3_injection_recovery.png",
+      "jpg": "figures/03_salt3_injection_recovery.jpg"
+    },
+    {
+      "stem": "04a_dovekie_hubble",
+      "png": "figures/04a_dovekie_hubble.png",
+      "jpg": "figures/04a_dovekie_hubble.jpg"
+    },
+    {
+      "stem": "04b_dovekie_residuals",
+      "png": "figures/04b_dovekie_residuals.png",
+      "jpg": "figures/04b_dovekie_residuals.jpg"
+    },
+    {
+      "stem": "04c_dovekie_residual_hist",
+      "png": "figures/04c_dovekie_residual_hist.png",
+      "jpg": "figures/04c_dovekie_residual_hist.jpg"
+    },
+    {
+      "stem": "05a_pantheon_hubble",
+      "png": "figures/05a_pantheon_hubble.png",
+      "jpg": "figures/05a_pantheon_hubble.jpg"
+    },
+    {
+      "stem": "05b_pantheon_residuals",
+      "png": "figures/05b_pantheon_residuals.png",
+      "jpg": "figures/05b_pantheon_residuals.jpg"
+    },
+    {
+      "stem": "05c_pantheon_residual_hist",
+      "png": "figures/05c_pantheon_residual_hist.png",
+      "jpg": "figures/05c_pantheon_residual_hist.jpg"
+    },
+    {
+      "stem": "05d_pantheon_correlation",
+      "png": "figures/05d_pantheon_correlation.png",
+      "jpg": "figures/05d_pantheon_correlation.jpg"
+    },
+    {
+      "stem": "05e_pantheon_eigenvalues",
+      "png": "figures/05e_pantheon_eigenvalues.png",
+      "jpg": "figures/05e_pantheon_eigenvalues.jpg"
+    },
+    {
+      "stem": "06_whitened_residuals",
+      "png": "figures/06_whitened_residuals.png",
+      "jpg": "figures/06_whitened_residuals.jpg"
+    },
+    {
+      "stem": "08_h0_invariance",
+      "png": "figures/08_h0_invariance.png",
+      "jpg": "figures/08_h0_invariance.jpg"
+    },
+    {
+      "stem": "09a_cross_catalog_residuals",
+      "png": "figures/09a_cross_catalog_residuals.png",
+      "jpg": "figures/09a_cross_catalog_residuals.jpg"
+    },
+    {
+      "stem": "09b_cross_catalog_bin_sensitivity",
+      "png": "figures/09b_cross_catalog_bin_sensitivity.png",
+      "jpg": "figures/09b_cross_catalog_bin_sensitivity.jpg"
+    }
+  ],
+  "independent_recomputation": {
+    "method": "standalone pandas/NumPy; does not import supernova_analyzer",
+    "cosmology": "Flat LambdaCDM, H0=70 km s^-1 Mpc^-1, Omega_m=0.3; 128-point Gauss-Legendre integral",
+    "des_dovekie": {
+      "rows": 1820,
+      "intercept_mag": -0.011476082860851684,
+      "intercept_sigma_mag": 0.004770656990172016,
+      "chi2": 1635.555246138604,
+      "ndof": 1819,
+      "chi2_per_dof": 0.8991507675308433,
+      "z_min": 0.02509,
+      "z_max": 1.14418
+    },
+    "pantheon_plus": {
+      "rows": 1624,
+      "full_rows": 1701,
+      "calibrator_rows": 77,
+      "intercept_mag": -0.1104084963534585,
+      "intercept_sigma_mag": 0.0036805129128356633,
+      "chi2": 1460.061865302795,
+      "ndof": 1623,
+      "chi2_per_dof": 0.8996068178082532,
+      "z_min": 0.00299,
+      "z_max": 2.26137,
+      "first_retained_source_positions": [
+        4,
+        21,
+        23,
+        25,
+        26,
+        29,
+        30,
+        31,
+        32,
+        35
+      ]
+    },
+    "runtime_seconds": 0.4859313750639558,
+    "absolute_differences_vs_program": {
+      "des_dovekie": {
+        "intercept_mag": 2.895253481405291e-15,
+        "intercept_sigma_mag": 0.0,
+        "chi2": 2.114575181622058e-11,
+        "chi2_per_dof": 1.1657341758564144e-14
+      },
+      "pantheon_plus": {
+        "intercept_mag": 6.564193633096238e-15,
+        "intercept_sigma_mag": 4.336808689942018e-19,
+        "chi2": 4.18367562815547e-11,
+        "chi2_per_dof": 2.5757174171303632e-14
+      }
+    },
+    "status": "PASS"
+  },
+  "verification_run": {
+    "date": "2026-11-06",
+    "working_tree": "base main; maintenance branch supernova-maint-1.0.1",
+    "source_data_tests_read_only": true,
+    "output_directory": "projects/supernova-analyzer/reports/verification_2026-11-06/",
+    "local_git_exclude": "projects/supernova-analyzer/reports/verification_2026-11-06/",
+    "runtime_environment": {
+      "venv": "projects/supernova-analyzer/.venv",
+      "pythonpath": ".:src",
+      "mplbackend": "Agg",
+      "mplconfigdir": "reports/verification_2026-11-06/cache/mpl",
+      "xdg_cache_home": "reports/verification_2026-11-06/cache/xdg",
+      "astropy_cache_dir": "~/.cache/astropy (pre-existing read-only model cache)",
+      "official_data_variables": {
+        "DES_DOVEKIE_HD_PATH": "data/external/des-dovekie/DES-Dovekie_HD.csv",
+        "DES_DOVEKIE_STAT_SYS_PATH": "data/external/des-dovekie/STAT+SYS.npz",
+        "PANTHEONPLUS_DATA_PATH": "data/external/pantheon-plus/Pantheon+SH0ES.dat",
+        "PANTHEONPLUS_STAT_SYS_PATH": "data/external/pantheon-plus/Pantheon+SH0ES_STAT+SYS.cov"
+      }
+    },
+    "test_results": {
+      "offline_pytest": {
+        "status": "PASS",
+        "passed": 281,
+        "failed": 0,
+        "deselected": 9,
+        "runtime_seconds": 5.04,
+        "log": "maintenance_offline_pytest.txt"
+      },
+      "integration_pytest": {
+        "status": "PASS",
+        "passed": 9,
+        "failed": 0,
+        "deselected": 281,
+        "runtime_seconds": 6.89,
+        "log": "maintenance_integration_pytest.txt",
+        "environment": "all available local official data variables, including DES-Dovekie, Pantheon+, legacy DES, and SALT3 integration"
+      },
+      "ruff": {
+        "status": "PASS",
+        "result": "All checks passed!",
+        "scope": "app.py cross_catalog_ui.py src scripts tests",
+        "cache": "disabled",
+        "log": "maintenance_ruff.txt"
+      },
+      "test_collection": {
+        "offline_items": 281,
+        "integration_items": 9,
+        "offline_collection_command_initial_error": "ModuleNotFoundError: No module named 'cross_catalog_ui' (initial collection omitted project root from PYTHONPATH; corrected to PYTHONPATH=.:src and collection passed)."
+      },
+      "pre_fix_streamlit_failure": {
+        "status": "RESOLVED_TEST_ENVIRONMENT_LEAKAGE",
+        "node": "tests/test_streamlit_app.py::test_scientific_result_downloads_and_state_behavior",
+        "original_assertion_line": 133,
+        "success_messages": [
+          "DES-Dovekie data available (app.py:799)",
+          "Pantheon+ data available (app.py:804)",
+          "Both catalogs available — analysis ready (app.py:824)"
+        ],
+        "scientific_success_absent": "Analysis complete. at app.py:720; stale input returns at app.py:713-714",
+        "fix": "monkeypatch.delenv for four official-data variables; current assertion line 143"
+      }
+    },
+    "validator": {
+      "status": "PASS",
+      "exit_code": 0,
+      "command": "python scripts/validate_cross_catalog_reproducibility.py (no --manifest)",
+      "result_file": "validator_result.json",
+      "official_sources_unchanged": true,
+      "runtime_seconds": 1.914,
+      "rows": {
+        "des_dovekie": 1820,
+        "pantheonplus_full": 1701,
+        "pantheonplus_calibrators": 77,
+        "pantheonplus_hubble_flow": 1624
+      },
+      "scope": {
+        "cosmological_parameter_inference": false,
+        "cross_catalog_covariance": false,
+        "object_cross_match": false,
+        "tension_significance_test": false
+      }
+    },
+    "pipeline_runtime_seconds": {
+      "basic_analysis_sample": 0.3134363331,
+      "salt3_sample_fit": 0.8842693749,
+      "salt3_injection_recovery_100": 11.7954237082,
+      "official_catalogs_load_fit_eigen_diagnostics_and_figures_combined": 5.152675458,
+      "independent_raw_file_recomputation": 0.486
+    },
+    "figure_validation": {
+      "status": "PASS",
+      "unique_figures": 15,
+      "png_count": 15,
+      "jpg_count": 15,
+      "png_dpi": 200,
+      "all_have_title_axis_labels_and_units": true,
+      "contact_sheet": "contact_sheet.jpg",
+      "contact_sheet_phone_layout": "two-column titled grid",
+      "color_limits_05d": [
+        -0.2,
+        0.2
+      ],
+      "dovekie_residual_ylim": [
+        -1.2,
+        3.2
+      ],
+      "dovekie_high_probability_errorbars": {
+        "threshold": "PROBIA_BEAMS >= 0.5",
+        "rows": 1719,
+        "error": "sqrt(diag(P^-1))"
+      },
+      "dovekie_low_probability_markers": {
+        "threshold": "PROBIA_BEAMS < 0.5",
+        "rows": 101,
+        "bars": false,
+        "max_MUERR_mag": 468.0108
+      },
+      "contact_sheet_dimensions_px": [
+        1684,
+        4204
+      ],
+      "contact_sheet_jpeg_decode": "PASS with project .venv; 15 figures"
+    },
+    "recovered_run_errors": [
+      {
+        "step": "Official-catalog figure harness, first attempt",
+        "status": "RECOVERED",
+        "error": "AttributeError: 'NormalizedDistanceCatalog' object has no attribute 'to_pandas'",
+        "cause": "The report-only harness treated the normalized protocol as a catalog wrapper.",
+        "action": "Corrected the harness to preserve source catalog frames; D-I rerun passed in 5.153 seconds."
+      },
+      {
+        "step": "Offline pytest first attempt",
+        "status": "RECOVERED",
+        "error": "FileNotFoundError: [Errno 2] No such file or directory: '<project>/reports/verification_2026-11-06/pytest/offline'",
+        "cause": "The report-local pytest basetemp parent had not yet been created.",
+        "action": "Created the report-local directory and reran: 281 passed, 9 deselected."
+      },
+      {
+        "step": "Test collection helper first attempt",
+        "status": "RECOVERED",
+        "error": "ModuleNotFoundError: No module named 'cross_catalog_ui'",
+        "cause": "PYTHONPATH was src only and omitted the project root where cross_catalog_ui.py lives.",
+        "action": "Reran collection with PYTHONPATH=.:src; collected 281 offline and 9 integration nodes."
+      }
+    ],
+    "unresolved_checks": []
+  },
+  "maintenance": {
+    "branch": "supernova-maint-1.0.1",
+    "source_change_scope": "test hermeticity and docs only; no numerical behavior/defaults/official data changed",
+    "offline_pytest": "281 passed, 9 deselected in 5.04 s",
+    "integration_pytest": "9 passed, 281 deselected in 6.89 s",
+    "ruff": "passed",
+    "A2_diagonal_method": "report harness only: DES sqrt(diag(P^-1)); Pantheon+ sqrt(diag(C)); app uses full matrices",
+    "DES_variance_definition": "diag(P^-1) = MUERR^2 + MUERR_SYS^2 exactly",
+    "Pantheon_variance_definition": "MU_SH0ES_ERR_DIAG^2 approximately diag(STAT+SYS)+diag(STATONLY), median variance ratio 0.992; plotting only per release README",
+    "DES_residual_stats": {
+      "scaled_MAD_mag": 0.1619732892555404,
+      "all_rows_RMS_mag": 0.26825085115336683,
+      "RMS_PROBIA_BEAMS_ge_0_5_mag": 0.16911420549170805,
+      "low_probability_rows": 101,
+      "max_low_probability_MUERR_mag": 468.0108
+    },
+    "external_reviewer_public_release_crosscheck": {
+      "reproduced_headline_catalog_statistics_to_printed_digits": true,
+      "Pantheon_plus_flat_LCDM_Om": {
+        "value": 0.333,
+        "uncertainty": 0.018,
+        "rows": 1580,
+        "redshift": "zHD > 0.01",
+        "paper_value": 0.334,
+        "paper_uncertainty": 0.018
+      },
+      "DES_Dovekie_flat_LCDM_Om": {
+        "value": 0.33,
+        "uncertainty": 0.015,
+        "paper_value": 0.33,
+        "paper_uncertainty": 0.015
+      },
+      "attribution": "reviewer only; not a program feature or this report’s independent fit"
+    },
+    "cross_catalog_sensitivity_check": "Removing the 101 DES rows with PROBIA_BEAMS < 0.5 changes the default 10-bin DES−Pantheon+ median differences by at most 0.0082 mag in the seven bins with ≥51 Pantheon+ rows, and by 0.0192 mag in the z≈0.98 bin, which has only 6 Pantheon+ rows.",
+    "initial_integration_invocation": "4 passed, 5 skipped with four requested paths; rerun with all available local official path variables gave 9 passed, 281 deselected",
+    "recovered_helper_error": "CrossCatalogError: Residual result row fields must have equal lengths.; corrected temporary filtered row count and reran",
+    "recovered_verification_error": "ModuleNotFoundError: No module named 'PIL' when contact-sheet validation used system Python; validation passed with project .venv",
+    "cross_catalog_sensitivity_status": "PASS: same calculation in seven bins with >=51 Pantheon+ rows; z~0.98 bin with six rows has 0.0192 mag change"
+  }
+}

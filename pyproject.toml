@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "supernova-analyzer"
+version = "0.1.0"
+description = "A Python project for plotting supernova light curves from CSV data."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "astropy",
+    "iminuit>=2,<3",
+    "matplotlib",
+    "numpy",
+    "pandas",
+    "scipy>=1.11,<2",
+    "sncosmo>=2.13,<3",
+    "streamlit>=1.40,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "integration: opt-in tests that may download external scientific model data",
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+src = ["src", "tests"]

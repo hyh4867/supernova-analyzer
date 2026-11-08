@@ -1,0 +1,11 @@
+tests/test_covariance.py::test_real_legacy_des_full_covariance_integration
+tests/test_cross_catalog.py::test_real_cross_catalog_comparison
+tests/test_cross_catalog_ui.py::test_app_renders_official_catalog_analysis_when_paths_are_available
+tests/test_dovekie_io.py::test_real_dovekie_hd_metadata_alignment
+tests/test_hubble_analysis.py::test_real_legacy_des_catalog_integration
+tests/test_pantheonplus_io.py::test_real_pantheonplus_integration
+tests/test_precision.py::test_real_dovekie_precision_integration
+tests/test_salt3_integration.py::test_real_salt3_fit_on_sncosmo_example_data
+tests/test_streamlit_app.py::test_scientific_result_downloads_and_state_behavior
+
+9/290 tests collected (281 deselected) in 1.78s

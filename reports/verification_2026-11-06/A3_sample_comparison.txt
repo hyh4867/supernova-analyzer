@@ -1,0 +1,19 @@
+sncosmo version: 2.13.0
+load_example_data signature: ()
+type: Table length: 40 columns: ['time', 'band', 'flux', 'fluxerr', 'zp', 'zpsys']
+bundled rows/columns: 40 ['time', 'band', 'flux', 'fluxerr', 'zp', 'zpsys']
+bundled head: [{'time': 55070.0, 'band': 'sdssg', 'flux': 0.36351153597, 'fluxerr': 0.672843847541, 'zp': 25.0, 'zpsys': 'ab'}, {'time': 55072.0512821, 'band': 'sdssr', 'flux': -0.200801295864, 'fluxerr': 0.672843847541, 'zp': 25.0, 'zpsys': 'ab'}, {'time': 55074.1025641, 'band': 'sdssi', 'flux': 0.307494232981, 'fluxerr': 0.672843847541, 'zp': 25.0, 'zpsys': 'ab'}]
+example head:      time      band       flux         fluxerr      zp  zpsys
+------------- ----- --------------- -------------- ---- -----
+      55070.0 sdssg   0.36351153597 0.672843847541 25.0    ab
+55072.0512821 sdssr -0.200801295864 0.672843847541 25.0    ab
+55074.1025641 sdssi  0.307494232981 0.672843847541 25.0    ab
+bundled unique bands: ['sdssg', 'sdssi', 'sdssr', 'sdssz']
+example band set: ['sdssg', 'sdssi', 'sdssr', 'sdssz']
+example metadata: OrderedDict({'x1': 0.5, 'c': 0.2, 'z': 0.5, 'x0': 1.20482820761e-05, 't0': 55100.0})
+time: exact=True max_abs_diff=0.0
+band: exact=True max_abs_diff=categorical
+flux: exact=True max_abs_diff=0.0
+fluxerr: exact=True max_abs_diff=0.0
+zp: exact=True max_abs_diff=0.0
+zpsys: exact=True max_abs_diff=categorical

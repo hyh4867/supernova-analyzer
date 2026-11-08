@@ -1,0 +1,4 @@
+rows 1820 probability missing 0
+PROBIA_BEAMS < 0.5 rows 101 max MUERR 468.0108 median MUERR 183.6521
+PROBIA_BEAMS >= 0.5 rows 1719 max MUERR 0.4836 median MUERR 0.1609
+all row max MUERR 468.0108 max row source index 1748 probability 0.0
